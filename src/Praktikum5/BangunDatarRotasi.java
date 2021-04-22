@@ -24,7 +24,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 
-public class BangunDatar extends JPanel{
+public class BangunDatarRotasi extends JPanel{
     MyCanvas ferzha;
     JSlider sliderTransX, sliderTransY, sliderRotateSudut, sliderRotateX, sliderRotateY;
     double transX = 0.0;
@@ -35,7 +35,7 @@ public class BangunDatar extends JPanel{
     double scaleX = 1.0;
     double scaleY = 1.0;
     float width = 2.0f;
-    public BangunDatar(){
+    public BangunDatarRotasi(){
         super(new BorderLayout());
         //pengaturan Tampilan Slider
         JPanel controlPanel = new JPanel(new GridLayout(3,3));
@@ -141,7 +141,7 @@ public class BangunDatar extends JPanel{
     public static void main(String[] args){
         JFrame f = new JFrame();
         f.setTitle("Tugas GRAFIKOM : membuat gambar Persegi, Lingkaran, Heksagon");
-        f.getContentPane().add(new BangunDatar());
+        f.getContentPane().add(new BangunDatarRotasi());
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setSize(1200, 700);
         f.setVisible(true);
