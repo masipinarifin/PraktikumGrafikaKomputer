@@ -1,0 +1,6 @@
+MSAA merupakan teknik Anti-Aliasing yang umum didapatkan pada game game. MSAA ini cukup seimbang pada Perfoma dan kualitas grafik. MSAA menggunakan teknik dengan cara memanipulasi warna warna pada bentuk  yang melengkung agar celah pada bentuk geometris itu dapat ditutup. MSAA ini punya tingkatan yaitu 2x 4x dan 8x. jika makin tinggi maka perfomanya makin turun. 
+TXAA Kerjanya juga hampir sama dengan MSAA. cuman TXAA ini jauh lebih efesien dan ringan untuk diimplementasikan pada game game. Tapi karena TXAA ini dibangun oleh perusahaan seperti NVIDIA dan AMD. Maka perfoma penggunaan TXAA ini tergantung pada optimalisasi masing masing kartu grafis.
+
+SSAA ini adalah teknik Anti aliasing yang paling akurat dan paling bekerja. SSAA ini kerjanya adalah dimana GPU akan merender Resolusi yang lebih tinggi dibanding Monitor lalu di Downsample.
+
+FXAA atau Fast Approximate Anti-Aliasing ini bekerja dengan cara menghaluskan tekstur 2 dimensi yang tampak pada layar tanpa mengolah bentuk asli 3 dimensi objek tersebut.
