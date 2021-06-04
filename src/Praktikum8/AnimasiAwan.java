@@ -28,7 +28,7 @@ public class AnimasiAwan extends Thread implements Runnable {
     public void run() {
         while (true) {
             if (kode==mulai)
-                ordinat-=5;
+                ordinat-=100;
             if (ordinat<=-500)
                 ordinat=kode;
             
