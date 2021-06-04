@@ -13,12 +13,12 @@ import java.awt.*;
 import java.awt.font.*;
 import java.awt.geom.*;
 import javax.swing.*;
-public class Human2D extends JApplet {
+public class Human2D_perubahan extends JApplet {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
-        frame.setTitle("Human 2D");
+        frame.setTitle("Human 2D_perubahan");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JApplet applet = new Human2D();
+        JApplet applet = new Human2D_perubahan();
         applet.init();
         frame.getContentPane().add(applet);
         frame.pack();
@@ -27,11 +27,11 @@ public class Human2D extends JApplet {
     }
     @Override
     public void init() {
-        JPanel panel = new PanelHuman();
+        JPanel panel = new PanelHuman_perubahan();
         getContentPane().add(panel);
     }
 }
-class PanelHuman extends JPanel implements Runnable {
+class PanelHuman_perubahan extends JPanel implements Runnable {
     //inisialisasi koordinat orang
     int xHuman = -500, yHuman = 100, vHuman = 1;
     //inisialisasi koordinat awan
@@ -39,7 +39,7 @@ class PanelHuman extends JPanel implements Runnable {
     //memanggil kelas thread
     AnimasiOrang2 orang = new AnimasiOrang2(this, xHuman, yHuman, vHuman);
     AnimasiAwan awan = new AnimasiAwan(this, mulai);
-    PanelHuman() {
+    PanelHuman_perubahan() {
         setPreferredSize(new Dimension(1000, 600));
         setBackground(Color.white);
         //membuat thread
@@ -54,8 +54,12 @@ class PanelHuman extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         drawLangit(g2, 0, 0);
+        drawMatahari(g2, 900,50);
         drawRumput(g2, 0, 300);
         drawSemak(g2, 650, 300);
+        drawSemak(g2, 0, 300);
+        drawSemak(g2, 300, 300);
+        drawJalan(g2, 0, 350);
         //getter koordinat orang
         xHuman = orang.getX();
         yHuman = orang.getY();
@@ -64,6 +68,9 @@ class PanelHuman extends JPanel implements Runnable {
         //getter koordinat awan
         mulai = awan.getOrdinat();
         drawAwan(g2, 380 + mulai, 70);
+        drawAwan(g2, 500 + mulai, 50);
+        drawAwan(g2, 800 + mulai, 50);
+        drawAwan(g2, 900 + mulai, 90);
         drawTulisan(g2, 50, 570);
     }
     //method menggambar awan
@@ -100,6 +107,13 @@ class PanelHuman extends JPanel implements Runnable {
         GradientPaint warna = new GradientPaint(0, 0, Color.cyan, 0, 250, Color.white);
         g2.setPaint(warna);
         g2.fill(langit);
+    }
+    //method menggambar matahari
+    public void drawMatahari(Graphics2D g2, int x, int y) {
+        Ellipse2D.Double matahari = new Ellipse2D.Double(x, y, 80, 80);
+        GradientPaint warna2 = new GradientPaint(900, 0, Color.white, 930 , 0, Color.yellow);
+        g2.setPaint(warna2);
+        g2.fill(matahari);
     }
     //method menggambar orang
     public void drawHuman(Graphics2D g2, int x, int y, int v) {
@@ -139,12 +153,12 @@ class PanelHuman extends JPanel implements Runnable {
         gp2.lineTo(x + 350, y + 270);
         gp2.lineTo(x + 300, y + 290);
         gp2.lineTo(x + 300, y + 300);
-        g2.setColor(Color.red);
+        g2.setColor(Color.white);
         //kaki kanan
         gp2.moveTo(x+325, y+240);
         gp2.lineTo(x+325, y+310);
         gp2.lineTo(x+335, y+310);
-        g2.setColor(Color.red);
+        g2.setColor(Color.white);
         if (v == 1) {
             g2.draw(head);
             g2.fill(head);
